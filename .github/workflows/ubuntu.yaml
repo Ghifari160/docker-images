@@ -33,4 +33,5 @@ jobs:
           --from-image ubuntu \
           --from-tag 22.04 \
           --tag "$SLUG:22.04" \
+          --tag "$SLUG:jammy" \
           --tag "$SLUG:latest" \
