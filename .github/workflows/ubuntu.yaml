@@ -13,6 +13,15 @@ env:
 
 jobs:
   build-ubuntu:
+    strategy:
+      max-parallel: 2
+      fail-fast: true
+      matrix:
+        TAG:
+        - from: 22.04
+          tags: [22.04, jammy, latest]
+        - from: 20.04
+          tags: [20.04, focal]
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
@@ -31,7 +40,5 @@ jobs:
         ./build.sh \
           --push \
           --from-image ubuntu \
-          --from-tag 22.04 \
-          --tag "$SLUG:22.04" \
-          --tag "$SLUG:jammy" \
-          --tag "$SLUG:latest" \
+          --from-tag ${{matrix.TAG.from}} \
+          --tag ghifari160/ubuntu:${{join(matrix.TAG.tags, ' --tag ghifari160/ubuntu:')}} \

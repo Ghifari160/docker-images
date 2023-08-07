@@ -9,6 +9,7 @@ Docker images.
 | Tags                     | Ubuntu Version | Notes                                      |
 |--------------------------|----------------|--------------------------------------------|
 | `22.04` `jammy` `latest` | 22.04          | Base Ubuntu image with additional packages |
+| `20.04` `focal`          | 20.04          | Base Ubuntu image with additional packages |
 
 ## Build
 
