@@ -10,6 +10,9 @@ Docker images.
 |--------------------------|----------------|--------------------------------------------|
 | `22.04` `jammy` `latest` | 22.04          | Base Ubuntu image with additional packages |
 | `20.04` `focal`          | 20.04          | Base Ubuntu image with additional packages |
+| ~~`18.04` `bionic`~~     | 18.04          | Deprecated. Legacy image\*                 |
+
+\*) Legacy images are not built from this repository.
 
 ## Build
 
