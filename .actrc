@@ -1,0 +1,6 @@
+-P ubuntu-latest=ghifari160/ubuntu:full-latest
+-P ubuntu-22.04=ghifari160/ubuntu:full-22.04
+--artifact-server-path /tmp/artifacts
+--secret-file=act.secrets
+--pull=false
+-e act.json
