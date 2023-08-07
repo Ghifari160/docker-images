@@ -4,6 +4,13 @@ Docker images.
 
 ## Images
 
+Images are built on GitHub Actions on:
+
+- Changes to the Dockerfile
+- Changes to the Actions workflow
+- Every Sunday at 12 AM UTC
+- Manual trigger
+
 ### ghifari160/ubuntu
 
 | Tags                     | Ubuntu Version | Notes                                      |
@@ -18,8 +25,10 @@ Docker images.
 
 Images on container registries are built on GitHub Actions.
 
-You can run the build script locally
+You can run the build script locally.
 
 ``` shell
 ./build.sh --from-image IMG --from-tag TAG --tag TAG [--push]
 ```
+
+Run `./build.sh --help` for more information.
