@@ -18,5 +18,4 @@ RUN apt-get -yq update && apt-get -yq install \
         lsb-release \
         rsync \
         sudo \
-        wget \
-    && rm -rf /var/lib/apt/lists/*
+        wget
