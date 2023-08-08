@@ -16,6 +16,7 @@ Usage: [ACT=true] build.sh <--from-image IMG> <--from-tag TAG> <--tag TAG> [--pu
 Options:
     -h, --help              display this help and exit
     -p, --push              push to registry
+    -o, --platform          target platform
     -i, --from-image IMG    from image
     -f, --from-tag TAG      from tag
     -t, --tag TAG           tag
@@ -40,6 +41,12 @@ do
 
         -p | --push)
             PUSH=1
+            shift
+            ;;
+
+        -o | --platform)
+            PLATFORM="$2"
+            shift
             shift
             ;;
 
@@ -84,6 +91,10 @@ docker_args+=("--progress plain")
 
 if [[ "$PUSH" -eq 1 ]]; then
     docker_args+=("--push")
+fi
+
+if [[ ! -z "$PLATFORM" ]]; then
+    docker_args+=("--platform $PLATFORM")
 fi
 
 docker_args+=("--build-arg FROM_IMAGE=${FROM_IMAGE}")
