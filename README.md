@@ -13,11 +13,11 @@ Images are built on GitHub Actions on:
 
 ### ghifari160/ubuntu
 
-| Tags                     | Ubuntu Version | Notes                                      |
-|--------------------------|----------------|--------------------------------------------|
-| `22.04` `jammy` `latest` | 22.04          | Base Ubuntu image with additional packages |
-| `20.04` `focal`          | 20.04          | Base Ubuntu image with additional packages |
-| ~~`18.04` `bionic`~~     | 18.04          | Deprecated. Legacy image\*                 |
+| Tags                     | Image Version | Platform                    | Notes                                      |
+|--------------------------|---------------|-----------------------------|--------------------------------------------|
+| `22.04` `jammy` `latest` | 22.04         | `linux/amd64` `linux/arm64` | Base Ubuntu image with additional packages |
+| `20.04` `focal`          | 20.04         | `linux/amd64` `linux/arm64` | Base Ubuntu image with additional packages |
+| ~~`18.04` `bionic`~~     | 18.04         | `linux/amd64`               | Deprecated. Legacy image\*                 |
 
 \*) Legacy images are not built from this repository.
 
@@ -28,7 +28,7 @@ Images on container registries are built on GitHub Actions.
 You can run the build script locally.
 
 ``` shell
-./build.sh --from-image IMG --from-tag TAG --tag TAG [--push]
+./build.sh --from-image IMG --from-tag TAG --tag TAG [--push] [--platform PLATFORM]
 ```
 
 Run `./build.sh --help` for more information.

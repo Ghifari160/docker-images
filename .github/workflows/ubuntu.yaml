@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - ".github/workflows/ubuntu.yaml"
+      - "build.sh"
       - "linux/ubuntu/**"
   workflow_dispatch:
 
@@ -14,9 +15,10 @@ env:
 jobs:
   build-ubuntu:
     strategy:
-      max-parallel: 2
+      max-parallel: 4
       fail-fast: true
       matrix:
+        PLATFORM: [linux/amd64, linux/arm64]
         TAG:
         - from: 22.04
           tags: [22.04, jammy, latest]
@@ -32,6 +34,7 @@ jobs:
       with:
         username: ${{secrets.DOCKERHUB_USERNAME}}
         password: ${{secrets.DOCKERHUB_TOKEN}}
+    - uses: docker/setup-qemu-action@v2
 
     - name: Build Ubuntu
       env:
@@ -39,6 +42,7 @@ jobs:
       run: |
         ./build.sh \
           --push \
+          --platform ${{matrix.PLATFORM}} \
           --from-image ubuntu \
           --from-tag ${{matrix.TAG.from}} \
           --tag ghifari160/ubuntu:${{join(matrix.TAG.tags, ' --tag ghifari160/ubuntu:')}} \
