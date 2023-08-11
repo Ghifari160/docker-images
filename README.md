@@ -13,13 +13,18 @@ Images are built on GitHub Actions on:
 
 ### ghifari160/ubuntu
 
-| Tags                     | Image Version | Platform                    | Notes                                      |
-|--------------------------|---------------|-----------------------------|--------------------------------------------|
-| `22.04` `jammy` `latest` | 22.04         | `linux/amd64` `linux/arm64` | Base Ubuntu image with additional packages |
-| `20.04` `focal`          | 20.04         | `linux/amd64` `linux/arm64` | Base Ubuntu image with additional packages |
-| ~~`18.04` `bionic`~~     | 18.04         | `linux/amd64`               | Deprecated. Legacy image\*                 |
+| Tags                       | Image Version | Platform                    | Notes                                      |
+|----------------------------|---------------|-----------------------------|--------------------------------------------|
+| `22.04` `jammy` `latest`   | 22.04         | `linux/amd64` `linux/arm64` | Base Ubuntu image with additional packages |
+| `20.04` `focal`            | 20.04         | `linux/amd64` `linux/arm64` | Base Ubuntu image with additional packages |
+| `full-22.04` `full-latest` | 22.04         | `linux/amd64`               | GitHub Actions runner                      |
+| ~~`18.04` `bionic`~~       | 18.04         | `linux/amd64`               | Deprecated. Legacy image                   |
 
-\*) Legacy images are not built from this repository.
+**Notes:**
+
+- Legacy images are not built from this repository.
+- GitHub Actions runner images are _manually_ built from
+  [`ghifari160/runner-images`](https://github.com/ghifari160/runner-images).
 
 ## Build
 
